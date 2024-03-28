@@ -1,18 +1,24 @@
 package br.com.drivelab.dynamicpayload.entities;
 
 public class NaturalPerson extends Person {
-    private final String name;
+    private final String firstName;
+    private final String lastName;
     private final String cpf;
 
     protected NaturalPerson(Builder builder) {
         super(builder);
         super.type = PersonType.NATURAL;
-        this.name = builder.name;
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
         this.cpf = builder.cpf;
     }
 
-    public String getName() {
-        return name;
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getCpf() {
@@ -25,11 +31,17 @@ public class NaturalPerson extends Person {
     }
 
     public static class Builder extends Person.Builder<Builder> {
-        private String name;
+        private String firstName;
+        private String lastName;
         private String cpf;
 
-        public Builder setName(String name) {
-            this.name = name;
+        public Builder setLastName(String lastName) {
+            this.lastName = lastName;
+            return self();
+        }
+
+        public Builder setFirstName(String firstName) {
+            this.firstName = firstName;
             return self();
         }
 

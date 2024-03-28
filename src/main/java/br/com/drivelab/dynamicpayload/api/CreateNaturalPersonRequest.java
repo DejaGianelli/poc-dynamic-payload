@@ -4,18 +4,27 @@ import br.com.drivelab.dynamicpayload.entities.NaturalPerson;
 import br.com.drivelab.dynamicpayload.entities.Person;
 
 public class CreateNaturalPersonRequest extends CreatePersonRequest {
-    private String name;
+    private String firstName;
+    private String lastName;
     private String cpf;
 
     public CreateNaturalPersonRequest() {
     }
 
-    public String getName() {
-        return name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getCpf() {
@@ -29,7 +38,8 @@ public class CreateNaturalPersonRequest extends CreatePersonRequest {
     @Override
     public Person.Builder<NaturalPerson.Builder> toBuilder() {
         return new NaturalPerson.Builder()
-                .setName(name)
+                .setFirstName(firstName)
+                .setLastName(lastName)
                 .setCpf(cpf);
     }
 }

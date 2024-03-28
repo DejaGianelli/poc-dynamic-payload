@@ -14,13 +14,13 @@ public class PersonTest {
         var guid = UUID.randomUUID();
         LegalPerson legalPerson = new LegalPerson.Builder()
                 .setId(guid)
-                .setBrandName("Brand")
+                .setBrandName("Comp")
                 .setCnpj("1234")
                 .setCompanyName("Company Ltda")
                 .build();
 
         assertEquals(guid, legalPerson.getId());
-        assertEquals("Brand", legalPerson.getBrandName());
+        assertEquals("Comp", legalPerson.getBrandName());
         assertEquals("1234", legalPerson.getCnpj());
         assertEquals("Company Ltda", legalPerson.getCompanyName());
     }
@@ -30,12 +30,14 @@ public class PersonTest {
         var guid = UUID.randomUUID();
         NaturalPerson naturalPerson = new NaturalPerson.Builder()
                 .setId(guid)
-                .setName("Brand")
-                .setCpf("1234")
+                .setFirstName("Fulano")
+                .setLastName("Silva")
+                .setCpf("20258992034")
                 .build();
 
         assertEquals(guid, naturalPerson.getId());
-        assertEquals("Brand", naturalPerson.getName());
-        assertEquals("1234", naturalPerson.getCpf());
+        assertEquals("Fulano", naturalPerson.getFirstName());
+        assertEquals("Silva", naturalPerson.getLastName());
+        assertEquals("20258992034", naturalPerson.getCpf());
     }
 }

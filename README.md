@@ -22,7 +22,8 @@ And this is a json representation of a natural person:
 ```json
 {
   "type": "natural",
-  "name": "Fulano da Silva",
+  "firstName": "Fulano",
+  "lastName": "Silva",
   "cpf": "00126014035"
 }
 ```
@@ -154,13 +155,15 @@ public class LegalPerson extends Person {
 
 ```java
 public class NaturalPerson extends Person {
-    private final String name;
+    private final String firstName;
+    private final String lastName;
     private final String cpf;
 
     public NaturalPerson(Builder builder) {
         super(builder);
         super.type = PersonType.NATURAL;
-        this.name = builder.name;
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
         this.cpf = builder.cpf;
     }
 
@@ -172,11 +175,17 @@ public class NaturalPerson extends Person {
     }
 
     public static class Builder extends Person.Builder<Builder> {
-        private String name;
+        private String firstName;
+        private String lastName;
         private String cpf;
 
-        public Builder setName(String name) {
-            this.name = name;
+        public Builder setLastName(String lastName) {
+            this.lastName = lastName;
+            return self();
+        }
+
+        public Builder setFirstName(String firstName) {
+            this.firstName = firstName;
             return self();
         }
 
