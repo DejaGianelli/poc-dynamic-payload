@@ -53,6 +53,10 @@ public abstract class CreatePersonRequest {
 
 Essentially, based on the *type* property, Jackson will know which implementation to choose.
 
+This way, you don't pollute a single request class with a bunch of properties of all different implementations
+and also, avoid having validators with complex conditions to handle each case, hence ensuring the separation
+of concerns.
+
 You may have noticed the abstract *toBuilder()* method. That's because I don't want to pass the request
 object directly to the service because it belongs to a different layer (infrastructure). 
 Instead, made the service to receive an abstract builder. 
