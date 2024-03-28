@@ -2,10 +2,16 @@ package br.com.drivelab.dynamicpayload.api;
 
 import br.com.drivelab.dynamicpayload.entities.LegalPerson;
 import br.com.drivelab.dynamicpayload.entities.Person;
+import jakarta.validation.constraints.NotEmpty;
+import org.hibernate.validator.constraints.br.CNPJ;
 
 public class CreateLegalPersonRequest extends CreatePersonRequest {
+    @NotEmpty
     private String brandName;
+    @NotEmpty
+    @CNPJ
     private String cnpj;
+    @NotEmpty
     private String companyName;
 
     public CreateLegalPersonRequest() {

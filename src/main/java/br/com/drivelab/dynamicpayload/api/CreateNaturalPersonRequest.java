@@ -2,10 +2,16 @@ package br.com.drivelab.dynamicpayload.api;
 
 import br.com.drivelab.dynamicpayload.entities.NaturalPerson;
 import br.com.drivelab.dynamicpayload.entities.Person;
+import jakarta.validation.constraints.NotEmpty;
+import org.hibernate.validator.constraints.br.CPF;
 
 public class CreateNaturalPersonRequest extends CreatePersonRequest {
+    @NotEmpty
     private String firstName;
+    @NotEmpty
     private String lastName;
+    @NotEmpty
+    @CPF
     private String cpf;
 
     public CreateNaturalPersonRequest() {

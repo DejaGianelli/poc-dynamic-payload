@@ -3,6 +3,7 @@ package br.com.drivelab.dynamicpayload.api;
 import br.com.drivelab.dynamicpayload.entities.Person;
 import br.com.drivelab.dynamicpayload.repositories.PersonRepository;
 import br.com.drivelab.dynamicpayload.services.CreatePersonService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +24,7 @@ public class PersonController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> create(@RequestBody CreatePersonRequest request) {
+    public ResponseEntity<Void> create(@Valid @RequestBody CreatePersonRequest request) {
         Person person = createPersonService.execute(request.toBuilder());
         repository.create(person);
         return ResponseEntity.ok().build();

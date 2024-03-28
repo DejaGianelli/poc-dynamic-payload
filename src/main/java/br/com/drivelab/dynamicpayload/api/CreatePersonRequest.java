@@ -3,6 +3,7 @@ package br.com.drivelab.dynamicpayload.api;
 import br.com.drivelab.dynamicpayload.entities.Person;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import jakarta.validation.constraints.NotEmpty;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
@@ -14,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = CreateLegalPersonRequest.class, name = "legal")
 })
 public abstract class CreatePersonRequest {
+    @NotEmpty
     private String type;
 
     public String getType() {
