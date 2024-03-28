@@ -4,7 +4,7 @@ public class NaturalPerson extends Person {
     private final String name;
     private final String cpf;
 
-    public NaturalPerson(Builder builder) {
+    protected NaturalPerson(Builder builder) {
         super(builder);
         super.type = PersonType.NATURAL;
         this.name = builder.name;

@@ -5,7 +5,7 @@ public class LegalPerson extends Person {
     private final String cnpj;
     private final String companyName;
 
-    public LegalPerson(Builder builder) {
+    protected LegalPerson(Builder builder) {
         super(builder);
         super.type = PersonType.LEGAL;
         this.brandName = builder.brandName;
