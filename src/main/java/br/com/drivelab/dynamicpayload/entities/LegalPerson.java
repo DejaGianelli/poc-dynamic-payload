@@ -26,7 +26,7 @@ public class LegalPerson extends Person {
     }
 
     @Override
-    public String getDocument() {
+    public String document() {
         return cnpj;
     }
 

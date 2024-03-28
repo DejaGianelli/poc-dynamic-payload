@@ -18,9 +18,9 @@ public class CreatePersonService {
 
     public Person execute(Person.Builder<? extends Person.Builder<?>> builder) {
         Person person = builder.build();
-        Optional<Person> personWithDocument = repository.findByDocument(person.getDocument());
+        Optional<Person> personWithDocument = repository.findByDocument(person.document());
         if (personWithDocument.isPresent()) {
-            throw new RuntimeException("There is already a person with the document " + person.getDocument());
+            throw new RuntimeException("There is already a person with the document " + person.document());
         }
         return person;
     }

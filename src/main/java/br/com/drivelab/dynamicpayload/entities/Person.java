@@ -10,7 +10,7 @@ public abstract class Person {
         this.id = builder.id;
     }
 
-    public abstract String getDocument();
+    public abstract String document();
 
     public UUID getId() {
         return id;

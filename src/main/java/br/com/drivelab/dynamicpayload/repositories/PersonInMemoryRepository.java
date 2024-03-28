@@ -18,6 +18,6 @@ public class PersonInMemoryRepository implements PersonRepository {
 
     @Override
     public Optional<Person> findByDocument(String document) {
-        return PEOPLE.stream().filter(person -> person.getDocument().equals(document)).findAny();
+        return PEOPLE.stream().filter(person -> person.document().equals(document)).findAny();
     }
 }
